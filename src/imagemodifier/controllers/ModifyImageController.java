@@ -7,6 +7,7 @@ import imagemodifier.modifications.*;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -674,11 +675,17 @@ public class ModifyImageController {
 
         VBox kernelVBox = new VBox(); // stores the rows of the kernel
 
+        VBox kernelSizeVBox = new VBox();
+        Label kernelSizeLabel = new Label("Increase or decrease the kernel size.");
+        kernelSizeLabel.getStyleClass().add("description");
+
         HBox kernelSizeHBox = new HBox();
         kernelSizeHBox.setSpacing(10);
         Button kernelSizeAddButton = new Button("+");
+        kernelSizeAddButton.setPrefSize(25, 25);
         kernelSizeAddButton.getStyleClass().add("menu-button");
         Button kernelSizeSubtractButton = new Button("-");
+        kernelSizeSubtractButton.setPrefSize(25, 25);
         kernelSizeSubtractButton.getStyleClass().add("menu-button");
 
         kernelSizeAddButton.setOnMouseClicked(event -> {
@@ -792,6 +799,8 @@ public class ModifyImageController {
             kernelVBox.getChildren().clear();
             kernelVBox.getChildren().addAll(getKernelHBoxes(kernel));
 
+            kernelMultiplier.setText(Double.toString(kernel.getMultiplier()));
+
             try {
                 BufferedImage image = copyImage(previewImageSmall);
                 createImage(image);
@@ -802,9 +811,12 @@ public class ModifyImageController {
         });
 
         kernelSizeHBox.getChildren().addAll(kernelSizeAddButton, kernelSizeSubtractButton);
+        kernelSizeVBox.getChildren().addAll(kernelSizeLabel, kernelSizeHBox);
         kernelVBox.getChildren().addAll(getKernelHBoxes(kernel));
         kernelMultiplierHBox.getChildren().addAll(kernelMultiplier, kernelVBox);
-        modificationVBox.getChildren().addAll(kernelLabel, kernelPresetChoiceBox, kernelMultiplierHBox, kernelSizeHBox);
+        modificationVBox.getChildren().addAll(kernelLabel, kernelPresetChoiceBox, kernelMultiplierHBox, kernelSizeVBox);
+        modificationVBox.setMargin(kernelPresetChoiceBox, new Insets(0, 0, 10, 0));
+        modificationVBox.setMargin(kernelSizeVBox, new Insets(10, 0, 0, 0));
     }
 
     public ArrayList<HBox> getKernelHBoxes(Kernel kernel) {
