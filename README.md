@@ -2,7 +2,7 @@
 A simple program that allows you to perform basic modifications on an image and save it.
 
 ## How to Use
-1. Download `ImageModifier.jar` and run it.
+1. Download `ImageModifier.jar` (requires Java 15) or the source code and run it.
 2. Navigate to **Settings** and ensure that the program is using the correct values
     - The thread count should default to the number of available processors on your computer.
     - The thread timeout time should default to 30 seconds (30000 milliseconds).
@@ -15,6 +15,6 @@ A simple program that allows you to perform basic modifications on an image and 
 *Generate* button at the bottom-left of the screen.
 8. Below the *Generate* button, there is a progress bar that indicates how close the generated image is to completion.
     - To the right of the *Generate* button, there is a label that shows the percentage the progress bar is at.
-    - The progress bar updates only when a thread has completed its task, so if only 1 thread was specified
+    - The progress bar updates only when a thread has completed its task. If only 1 thread was specified
      in **Settings**, the progress bar will instantly jump from 0% to 100% once the thread has completed 
      its task.
