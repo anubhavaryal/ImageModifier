@@ -3,3 +3,6 @@
 out/
 src/META-INF/
 ImageModifier.iml
+
+# Custom
+settings.cfg
