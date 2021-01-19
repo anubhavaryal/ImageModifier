@@ -1,6 +1,7 @@
 package imagemodifier.controllers;
 
 import imagemodifier.ImageThread;
+import imagemodifier.Main;
 import imagemodifier.Modification;
 import imagemodifier.modifications.*;
 import javafx.embed.swing.SwingFXUtils;
@@ -92,7 +93,7 @@ public class ModifyImageController {
     }
 
     public void openMainMenu(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/MainMenu.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("views/MainMenu.fxml"));
         Scene scene = new Scene(root);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 

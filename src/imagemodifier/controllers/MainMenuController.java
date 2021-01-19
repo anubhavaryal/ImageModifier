@@ -1,5 +1,6 @@
 package imagemodifier.controllers;
 
+import imagemodifier.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class MainMenuController {
     public void openModifyImage(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/ModifyImage.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("views/ModifyImage.fxml"));
         Scene scene = new Scene(root);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
@@ -21,7 +22,7 @@ public class MainMenuController {
     }
 
     public void openSettings(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/Settings.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("views/Settings.fxml"));
         Scene scene = new Scene(root);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 

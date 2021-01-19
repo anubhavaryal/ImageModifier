@@ -1,5 +1,6 @@
 package imagemodifier.controllers;
 
+import imagemodifier.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,7 +28,7 @@ public class SettingsController {
     }
 
     public void openMainMenu(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/MainMenu.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("views/MainMenu.fxml"));
         Scene scene = new Scene(root);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
